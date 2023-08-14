@@ -1,11 +1,15 @@
 ﻿using CasgemMicroservice.Services.Catalog.Dtos.CategoryDtos;
 using CasgemMicroservice.Services.Catalog.Dtos.ProductDtos;
 using CasgemMicroservice.Services.Catalog.Services.ProductServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CasgemMicroservice.Services.Catalog.Controllers
 {
-    public class ProductsController : Controller
+    [Authorize]
+    [Route("api/[controller]")]
+    [ApiController]
+    public class ProductsController : ControllerBase
     {
         private readonly IProductService _productService;
 
